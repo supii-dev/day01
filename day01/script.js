@@ -20,22 +20,27 @@ if ($screen && $toggleButton) {
   //     0;
   //   });
   $toggleButton.addEventListener("click", () => {
+    // 자꾸값이바뀌는걸 토글이라고함 
     stopWatchOn = !stopWatchOn;
     console.log("stopWatchOn:", stopWatchOn);
     $toggleButton.innerHTML = stopWatchOn ? "■" : "▶";
     $toggleButton.style.backgroundColor = stopWatchOn ? "tomato" : "steelblue";
     // style. 인라인을 그대로 먹일때 사용하는 방법
     $toggleButton.classList.toggle("stop-color");
+    // 속성뒤에 . 이 붙으면 이객체에 다른객체주소값이 저장되있음
     if (stopWatchOn) {
-      //첫번째 인자 : 콜백함수
-      //두번째인자 : Number - ms
+      //첫번째 인자 (아규먼트): 콜백함수
+      //두번째 인자 : Number - ms
       timeInterval = setInterval(() => {
+        // setInterval = 특정 콜백함수를 여러번 실행할때
         /*
         1초 > 100
         1분 > 60초 > 6000
         */
         seconds++;
         const mm = String(Math.floor(seconds / 6000) % 60).padStart(2, "0");
+        //                                                   문자열 두자리를 차지하고싶다 부족한 자리는 0으로 채워라
+        //                                                 padAnd는 뒤에를채워줌 
         const ss = String(Math.floor(seconds / 100) % 60).padStart(2, "0");
         const cs = String(seconds % 100).padStart(2, "0");
         $screen.innerText = `${mm}:${ss}:${cs}`;
