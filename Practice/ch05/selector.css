@@ -1,0 +1,16 @@
+
+
+span {
+  color: plum;
+}
+span {
+  color: pink;
+}
+
+div{color: olivedrab;}
+#red{color: red;}
+div.blue{color: brown;}
+div.blue.dark{color: green !important;}
+.blue.dark{color: gray !important}
+.blue{color: slateblue;}
+
