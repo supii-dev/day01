@@ -1,0 +1,4 @@
+div{font-style: italic; font-weight: 900;font-size: 1.2em;}
+html {font-size: 16px;}
+/* 픽셀은 고정값 변화가 된다면 반응형 램아니면 이엠 */
+.font-rem{font-size: 1.2rem;}
