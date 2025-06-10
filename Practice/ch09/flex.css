@@ -1,22 +1,42 @@
-.container {
-  display: flex;
-  justify-content: flex-start;
+body {
+  margin: 0;
 }
-.header > div:first-child {
-  background-color: beige;
+#container {
   display: flex;
-  justify-content:center
-
+  flex-direction: column;
+  background-color: antiquewhite;
+  height: 100vh;
 }
-.menw {
-  background-color: green;
+#header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-basis: 100px;
+  align-items: flex-end;
+  background-color: dodgerblue;
+  padding: 12px;
+  gap: 12px;
 }
-
-#content {
-  background-color: aqua;
+#header > * {
+  background-color: yellow;
+  padding: 12px 0;
+  text-align: center;
+}
+#header > :first-child {
+  flex-basis: 100px;
+}
+#header > :last-child {
+  flex-grow: 1;
+}
+#main {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+#content {
+  background-color: skyblue;
+  padding: 24px;
+}
+#footer {
+  flex-basis: 60px;
+  background-color: tomato;
 }
