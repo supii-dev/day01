@@ -73,3 +73,41 @@ $currLiList.forEach((item, idx) => {
     item.addEventListener('mouseenter', () => $currProgBar.style.width = `${200 * idx}px`);
     item.addEventListener('mouseleave', () => $currProgBar.style.width = 0);
 });
+
+//const $contactTabs = document.querySelectorAll('#ct_1, #ct_2');
+const $contactTabs = document.querySelectorAll('#contact input[name="contact"]');
+console.log($contactTabs);
+const $contactSlideCon = document.querySelector('#contact .contact__slide-con');
+
+$contactTabs.forEach((item, idx) => {
+    const marginLeft = [0, '-100vw'][idx];
+
+    // 위 코드의 내용을 풀어쓰면 아래와 같다.
+    // let marginLeft;
+    // if(idx === 0) {
+    //     marginLeft = 0;
+    // } else if(idx === 1) {
+    //     marginLeft = '-100vw';
+    // }
+    item.addEventListener('click', () => {
+        $contactSlideCon.style.marginLeft = marginLeft;
+    });
+});
+
+const $menuBtn = document.querySelector('header.header button.header__menu-btn');
+const $headerNav = document.querySelector('header.header nav.header__nav');
+
+$menuBtn.addEventListener('click', e => {
+    $menuBtn.classList.toggle('on');
+     //e.target.classList.toggle('on');
+    $headerNav.classList.toggle('active');    
+
+    e.stopPropagation(); //버블링 중지
+});
+
+const $body = document.querySelector('body');
+$body.addEventListener('click', () => {
+    $menuBtn.classList.remove('on');
+    $headerNav.classList.remove('active');    
+});
+
