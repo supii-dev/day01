@@ -22,7 +22,7 @@
             <li>사과</li>
             <li>딸기</li>
             <li>포도</li>
-        </ul>
+        </ul>  
     </section>
     <section>
         <h2>고기</h2>
@@ -32,5 +32,40 @@
             <li class="soldout">닭고기</li>
         </ul>
     </section>
+    <script>
+        const $section = document.querySelector('section');
+        console.log($section);
+
+        const firstSectionChildren = $section.children;
+        console.log('firstSectionChildren:', firstSectionChildren);
+        const $parentSection =  firstSectionChildren[0].parentElement;
+        console.log('$parentSection:', $parentSection);
+
+        console.log('$section === $parentSection:', $section === $parentSection);
+
+        const $sectionList = document.querySelectorAll('section');
+        console.log($sectionList);
+
+        const $section2 = document.querySelector('#sweets');
+        console.log($section2);
+
+        //모든 li 가져오고 싶다.
+        const $all_li = document.querySelectorAll('li');
+        console.log($all_li);
+
+        // plant 라는 클래스를 가지고 있는 엘리먼트의 주소값을 전부 가져오고 싶다.
+        const $all_plant = document.querySelectorAll('.plant');
+        console.log($all_plant);
+
+        // plant 클래스 바로 아래에 ul 바로 아래에
+        // soldout 클래스를 가진 엘리먼트의 주소값을 전부 가져오고 싶다.
+        const $all_soldout = document.querySelectorAll('.plant > ul > .soldout');
+        console.log($all_soldout);
+
+        //sweets 아이디 안에 있는 ul 태그 바로 아래에 두 번째 자식 선택!
+        //엘리먼트 갯수의 경우의 수?  1개, 2개, 
+        const $element = document.querySelector('#sweets ul > :nth-child(2)');
+        console.log($element);
+    </script>
 </body>
 </html>
