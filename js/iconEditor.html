@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>ICON EDITOR</h1>
+    <div id="editor"></div>
+    <script>
+      function makeElement(name, attributes) {
+        const node = document.createElement(name);
+        if (attributes) {
+          for (const attr in attributes) {
+            // of를 쓰면 배열 in은 객체 (내가가지고있는 속성명을 하나씩줌)
+            if (attributes.hasOwnProperty(attr)) {
+              node.setAttribute(attr, attributes[attr]);
+            }
+          }
+        }
+        return node;
+      }
+      function createIconEditor(target, nx, ny) {
+        const $inputColor = makeElement("input", { type: "color" });
+        target.appendChild($inputColor);
+        const $inputbuttonClear = makeElement("input", {
+          type: "button",
+          value: "Clear",
+        });
+        target.appendChild($inputbuttonClear);
+
+        const $table = makeElement("table");
+        $table.style.borderCollapse = "collapse";
+        $table.style.marginTop = "5px";
+
+        for (let y = 0; y < ny; y++) {
+          const $tr = makeElement("tr");
+          $table.appendChild($tr);
+          for (let x = 0; x < nx; x++) {
+            // 총 400번 도는 포문
+            const $td = makeElement("td");
+            $td.style.width = $td.style.height = "15px";
+            $td.style.border = "1px solid gray";
+            $tr.appendChild($td);
+          }
+        }
+        target.appendChild($table);
+      }
+      // 뷰포트의 화면 구성이 끝나면 호출 , LifeCycle
+      window.addEventListener("load", () => {
+        console.log("window.load 이벤트");
+        createIconEditor(document.querySelector("#editor"), 20, 20);
+      });
+      // const item = makeElement('div',{'class0':'cls-1',id:'div-01'});//엘레먼트 생성용 함수다
+      // console.log(item);
+      // item.textContent = 'div';
+      // document.body.append(item);
+    </script>
+  </body>
+</html>
